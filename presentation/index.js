@@ -41,7 +41,7 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Deck transition={["slide"]} progress="bar" transitionDuration={500} theme={theme}>
-        <Slide style={{height: '', maxHeight: '100%'}} className="mySlideStyles" transition={["slide"]} bgColor="primary">
+        <Slide height='100vh' className="mySlideStyles" transition={["slide"]} bgColor="primary" overflowy="scroll">
           <Heading size={1} textColor="secondary">
             Getting Started With React Today
           </Heading>
@@ -61,7 +61,7 @@ export default class Presentation extends React.Component {
             </List>
           </Appear>
         </Slide>
-        <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary">
+        <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflowy="scroll">
           <Heading height={200} size={4} textColor="white">Why use React?</Heading>
             <Appear order={1}>
             <List margin="0 20%" textColor="white">
@@ -71,17 +71,18 @@ export default class Presentation extends React.Component {
             </List>
           </Appear>
         </Slide>
-        <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary">
+        <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflowy="scroll">
           <Heading height={200} size={4} textColor="white">How does React work?</Heading>
           <Text textColor="white" size={2}>
             A React <b>Component</b> receives <b>properties</b> and <b>children</b> and returns a <b>React Element</b> based on its current state 
           </Text>
         </Slide>
-        <Slide height='1000' className="mySlideStyles">
+        <Slide height='1000' className="mySlideStyles" overflowy="scroll">
           <Layout>
           <Fill>
             <Text textColor="white" size={2}>React Component (Without JSX)</Text>
             <CodePane
+              overflow="scroll"
               textSize="20px"
               lang="js"
               source={`class Hello extends React.Component {
@@ -95,10 +96,10 @@ ReactDOM.render(
   document.getElementById('root')
 );`}
               margin="20px auto"
-              overflow = "overflow"
             />
             <Text textColor="white" size={2}>React Component (JSX)</Text>
             <CodePane
+              overflow="scroll"
               textSize="20px"
               lang="js"
               source={`class Hello extends React.Component {
@@ -112,14 +113,14 @@ ReactDOM.render(
   document.getElementById('root')
 );`}
               margin="20px auto"
-              overflow = "overflow"
             />
           </Fill>
           </Layout>
         </Slide>
-        <Slide height='1000' className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary">
+        <Slide height='1000' className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflowy="scroll">
           <Heading height={200} size={4} textColor="white">React Lifecycle</Heading>
           <CodePane
+              overflow="scroll"
               textSize="20px"
               lang="js"
               source={`class Hello extends React.Component {
@@ -136,10 +137,13 @@ ReactDOM.render(
   }
 };`}
               margin="20px auto"
-              overflow = "overflow"
           />
         </Slide>
-        <Slide height='1000' className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary">
+        <Slide height='900' className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflowy="scroll">
+          <Heading height={200} size={4} textColor="white">React Lifecycle Continued</Heading>
+          <Image src="https://pbs.twimg.com/media/DZ-97vzW4AAbcZj.jpg:large" />
+        </Slide>
+        <Slide height='900' className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflowy="scroll">
           <Heading height={200} size={4} textColor="white">React State and Conditions</Heading>
           <CodePane
               textSize="20px"
@@ -163,10 +167,10 @@ ReactDOM.render(
   }
 };`}
               margin="20px auto"
-              overflow = "overflow"
+              overflow="scroll"
           />
         </Slide>
-        <Slide height='1000' className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary">
+        <Slide height='900' className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflow="scroll">
           <Heading height={150} size={4} textColor="white">Don't forget to Bind (or just use arrow functions)</Heading>
           <CodePane
               textSize="20px"
@@ -195,34 +199,44 @@ ReactDOM.render(
 };`}
               margin="20px auto"
               height={850}
-              overflow = "auto"
+              overflow="auto"
           />
         </Slide>
-        <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary">
+        <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflowy="scroll">
           <Heading height={200} size={4} textColor="white">Getting Started in an Existing Codebase?</Heading>
           <Appear order={1}>
           <List margin="0 30%" textColor="white">
             <ListItem>Redux</ListItem>
-            <ListItem>CSS in JS</ListItem>
             <ListItem>Dev Tools</ListItem>
           </List>
           </Appear>
         </Slide>
-        <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary">
+        <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflowy="scroll">
           <Heading height={200} size={4} textColor="white">What is Redux?</Heading>
           <Appear>
-          <List margin="0 30%" textColor="white">
-            <Appear><ListItem>Flux Architecture for React</ListItem></Appear>
-            <Appear><ListItem><Image src="https://raw.githubusercontent.com/lgvalle/lgvalle.github.io/master/public/images/flux-graph-simple.png"/></ListItem></Appear>
-          </List>
+            <div>
+              <Heading height={200} size={6} textColor="white">- Flux Architecture for React</Heading>
+              <Image src="https://raw.githubusercontent.com/lgvalle/lgvalle.github.io/master/public/images/flux-graph-simple.png" />
+            </div>
           </Appear>
         </Slide>
-        <Slide className="mySlideStyles">
-          <Heading height={200} size={2} textColor="white">React Router</Heading>
+        <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflowy="scroll">
+          <Heading height={200} size={4} textColor="white">Dev Tools</Heading>
+          <List margin="0 30%" textColor="white">
+            <ListItem>React Dev Tool</ListItem>
+            <ListItem>Redux Dev Tool</ListItem>
+          </List>
         </Slide>
-        <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary">
-          <Heading height={200} size={4} textColor="white">React Lifecycle Continued</Heading>
-          <Image src="https://pbs.twimg.com/media/DZ-97vzW4AAbcZj.jpg:large" />
+        <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflowy="scroll">
+          <Heading height={200} size={4} textColor="white">Starting a New Project?</Heading>
+          <List margin="0 30%" textColor="white">
+            <ListItem>Create React App</ListItem>
+            <ListItem>Next.js</ListItem>
+            <ListItem>Gatsby</ListItem>            
+            <ListItem>nwb</ListItem>
+            <ListItem>Spectacle</ListItem>
+            <ListItem>Neutrino, razzle, after.js, etc</ListItem>
+          </List>
         </Slide>
       </Deck>
     );
