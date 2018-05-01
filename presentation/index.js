@@ -41,7 +41,21 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Deck transition={["slide"]} progress="bar" transitionDuration={500} theme={theme}>
+        <Slide height='100vh' className="mySlideStyles" transition={["slide"]} bgColor="quarternary" overflowy="scroll">
+          <Heading size={2} textColor="primary">
+            STL React Meetup Group
+          </Heading>
+          <Heading size={3} textColor="primary">
+            Speakers Wanted!
+          </Heading>
+          <hr color="black" />
+          <Heading size={4} textColor="secondary">
+            <a color="white" href="https://github.com/austinwillis/stl-react-meetup">Propose a Talk!</a>
+          </Heading>
+        </Slide>
         <Slide height='100vh' className="mySlideStyles" transition={["slide"]} bgColor="primary" overflowy="scroll">
+          <Heading size={6} textColor="secondary">
+          </Heading>
           <Heading size={1} textColor="secondary">
             Getting Started With React Today
           </Heading>
@@ -49,6 +63,17 @@ export default class Presentation extends React.Component {
           <Heading size={5} textColor="secondary">
             Austin Willis
           </Heading>
+        </Slide>
+        <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflowy="scroll">
+          <Heading height={200} size={4} textColor="white">Agenda</Heading>
+          <List margin="0 20%" textColor="white">
+            <ListItem>React Basics</ListItem>
+            <ListItem>React Lifecycle</ListItem>
+            <ListItem>React Dev Tool</ListItem>            
+            <ListItem>Redux</ListItem>
+            <ListItem>Redux Dev Tool</ListItem>
+            <ListItem>Project Creators</ListItem>
+          </List>
         </Slide>
         <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary">
           <Heading height={200} size={4} textColor="white">What is React?</Heading>
@@ -230,7 +255,7 @@ ReactDOM.render(
               lang="js"
               height='740'
               overflow="scroll"
-              source={`import { createStore } from 'redux'
+              source={`import { createStore, Provider } from 'react-redux'
               
 const counterReducer = (state = 0, action) => {
   switch (action.type) {
@@ -284,7 +309,7 @@ const resetCount = () => ({
               textSize="20px"
               lang="js"
               height='540'
-              source={`import { connect, Provider } from 'react-redux'
+              source={`import { connect } from 'react-redux'
 import { incrementCount, decrementCount, resetCount } from '../actions'
 
 const Component = ({
@@ -306,18 +331,18 @@ export default connect(
         </Slide>
         <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflowy="scroll">
           <Heading height={200} size={4} textColor="white">Dev Tools</Heading>
-          <List margin="0 30%" textColor="white">
+          <List margin="0 10%" textColor="white">
             <ListItem>Redux Dev Tool</ListItem>
           </List>
         </Slide>
         <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflowy="scroll">
           <Heading height={200} size={4} textColor="white">Starting a New Project?</Heading>
-          <List margin="0 30%" textColor="white">
+          <List margin="0 10%" textColor="white">
             <ListItem>Create React App</ListItem>
-            <ListItem>Next.js</ListItem>
-            <ListItem>Gatsby</ListItem>            
-            <ListItem>nwb</ListItem>
-            <ListItem>Spectacle</ListItem>
+            <ListItem>Next.js - Server Rendering</ListItem>
+            <ListItem>Gatsby - Static Site Generator</ListItem>            
+            <ListItem>nwb - React Components and Libraries, also supports Preact, Inferno</ListItem>
+            <ListItem>Spectacle- Presentations</ListItem>
             <ListItem>Neutrino, razzle, after.js, etc</ListItem>
           </List>
         </Slide>
