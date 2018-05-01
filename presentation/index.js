@@ -82,7 +82,6 @@ export default class Presentation extends React.Component {
           <Fill>
             <Text textColor="white" size={2}>React Component (Without JSX)</Text>
             <CodePane
-              overflow="scroll"
               textSize="20px"
               lang="js"
               source={`class Hello extends React.Component {
@@ -99,7 +98,6 @@ ReactDOM.render(
             />
             <Text textColor="white" size={2}>React Component (JSX)</Text>
             <CodePane
-              overflow="scroll"
               textSize="20px"
               lang="js"
               source={`class Hello extends React.Component {
@@ -120,7 +118,6 @@ ReactDOM.render(
         <Slide height='1000' className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflowy="scroll">
           <Heading height={200} size={4} textColor="white">React Lifecycle</Heading>
           <CodePane
-              overflow="scroll"
               textSize="20px"
               lang="js"
               source={`class Hello extends React.Component {
@@ -148,6 +145,8 @@ ReactDOM.render(
           <CodePane
               textSize="20px"
               lang="js"
+              height='540'
+              overflow="scroll"
               source={`class Things extends React.Component {
   state = {
     showThings: false
@@ -167,14 +166,14 @@ ReactDOM.render(
   }
 };`}
               margin="20px auto"
-              overflow="scroll"
           />
         </Slide>
-        <Slide height='900' className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflow="scroll">
+        <Slide height='900' className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary">
           <Heading height={150} size={4} textColor="white">Don't forget to Bind (or just use arrow functions)</Heading>
           <CodePane
               textSize="20px"
               lang="js"
+              height='600px'
               source={`class Things extends React.Component {
   constructor() {
     this.state = {
@@ -198,8 +197,7 @@ ReactDOM.render(
   }
 };`}
               margin="20px auto"
-              height={850}
-              overflow="auto"
+              overflow="scroll"
           />
         </Slide>
         <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflowy="scroll">
@@ -208,6 +206,11 @@ ReactDOM.render(
           <List margin="0 30%" textColor="white">
             <ListItem>Redux</ListItem>
             <ListItem>Dev Tools</ListItem>
+            <Appear order={1}>
+              <List margin="0 30%" textColor="white">
+                <ListItem>React Dev Tool</ListItem>
+              </List>
+            </Appear>
           </List>
           </Appear>
         </Slide>
@@ -220,10 +223,90 @@ ReactDOM.render(
             </div>
           </Appear>
         </Slide>
+        <Slide height={900} className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary">
+          <Heading height={50} size={6} textColor="white">Create Store</Heading>
+          <CodePane
+              textSize="20px"
+              lang="js"
+              height='740'
+              overflow="scroll"
+              source={`import { createStore } from 'redux'
+              
+const counterReducer = (state = 0, action) => {
+  switch (action.type) {
+    case 'INCREMENT_COUNT':
+      return state + 1
+    case 'DECREMENT_COUNT':
+      return state - 1
+    case 'RESET_COUNT':
+      return 0
+    default:
+      return state
+  }
+}
+
+const store = createStore(counterReducer, 0)
+
+ReactDOM.render(
+  <Provider store={store}>
+    <MyRootComponent />
+  </Provider>,
+  document.getElementById('app')
+)
+              `}
+              margin="20px auto"
+          />
+        </Slide>
+        <Slide height={900} className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary">
+          <Heading height={200} size={4} textColor="white">Actions</Heading>
+          <CodePane
+              textSize="20px"
+              lang="js"
+              height='540'
+              source={`const incrementCount = () => ({
+  type: 'INCREMENT_COUNT'
+})
+
+const decrementCount = () => ({
+  type: 'DECREMENT_COUNT'
+})
+
+const resetCount = () => ({
+  type: 'RESET_COUNT'
+})
+              `}
+              margin="20px auto"
+          />
+        </Slide>
+        <Slide height={900} className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary">
+          <Heading height={200} size={4} textColor="white">Connecting A Component</Heading>
+          <CodePane
+              textSize="20px"
+              lang="js"
+              height='540'
+              source={`import { connect, Provider } from 'react-redux'
+import { incrementCount, decrementCount, resetCount } from '../actions'
+
+const Component = ({
+  count, incrementCount, decrementCount, resetCount
+}) => <div>
+  <button onClick={incrementCount}>+</button>
+  <button onClick={decrementCount}>-</button>
+  <button onClick={resetCount}>Reset</button>
+  <span>{count}</span>
+</div>
+
+export default connect(
+  state => ({ count: state }),
+  { incrementCount, decrementCount, resetCount }
+)(Component)
+              `}
+              margin="20px auto"
+          />
+        </Slide>
         <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflowy="scroll">
           <Heading height={200} size={4} textColor="white">Dev Tools</Heading>
           <List margin="0 30%" textColor="white">
-            <ListItem>React Dev Tool</ListItem>
             <ListItem>Redux Dev Tool</ListItem>
           </List>
         </Slide>
