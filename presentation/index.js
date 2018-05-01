@@ -104,43 +104,39 @@ export default class Presentation extends React.Component {
             A React <b>Component</b> receives <b>properties</b> and <b>children</b> and returns a <b>React Element</b> based on its current state 
           </Text>
         </Slide>
-        <Slide height='1000' className="mySlideStyles" overflowy="scroll">
-          <Layout>
-          <Fill>
-            <Text textColor="white" size={2}>React Component (Without JSX)</Text>
-            <CodePane
-              textSize="20px"
-              lang="js"
-              source={`class Hello extends React.Component {
-  render() {
-    return React.createElement('div', null, \`Hello \${this.props.toWhat}\`);
-  }
+        <Slide height='900' className="mySlideStyles" overflow="scroll">
+          <Text textColor="white" size={2}>React Component (Without JSX)</Text>
+          <CodePane
+            textSize="20px"
+            lang="js"
+            source={`class Hello extends React.Component {
+render() {
+  return React.createElement('div', null, \`Hello \${this.props.toWhat}\`);
+}
 }
 
 ReactDOM.render(
-  React.createElement(Hello, {toWhat: 'World'}, null),
-  document.getElementById('root')
+React.createElement(Hello, {toWhat: 'World'}, null),
+document.getElementById('root')
 );`}
-              margin="20px auto"
-            />
-            <Text textColor="white" size={2}>React Component (JSX)</Text>
-            <CodePane
-              textSize="20px"
-              lang="js"
-              source={`class Hello extends React.Component {
-  render() {
-    return <div>Hello {this.props.toWhat}</div>;
-  }
+            margin="20px auto"
+          />
+          <Text textColor="white" size={2}>React Component (JSX)</Text>
+          <CodePane
+            textSize="20px"
+            lang="js"
+            source={`class Hello extends React.Component {
+render() {
+  return <div>Hello {this.props.toWhat}</div>;
+}
 }
 
 ReactDOM.render(
-  <Hello toWhat="World" />,
-  document.getElementById('root')
+<Hello toWhat="World" />,
+document.getElementById('root')
 );`}
-              margin="20px auto"
-            />
-          </Fill>
-          </Layout>
+            margin="20px auto"
+          />
         </Slide>
         <Slide height='1000' className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflowy="scroll">
           <Heading height={200} size={4} textColor="white">React Lifecycle</Heading>
@@ -167,13 +163,11 @@ ReactDOM.render(
           <Heading height={200} size={4} textColor="white">React Lifecycle Continued</Heading>
           <Image src="https://pbs.twimg.com/media/DZ-97vzW4AAbcZj.jpg:large" />
         </Slide>
-        <Slide height='900' className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflowy="scroll">
+        <Slide height='900' className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflow="scroll">
           <Heading height={200} size={4} textColor="white">React State and Conditions</Heading>
           <CodePane
               textSize="20px"
               lang="js"
-              height='540'
-              overflow="scroll"
               source={`class Things extends React.Component {
   state = {
     showThings: false
@@ -195,12 +189,11 @@ ReactDOM.render(
               margin="20px auto"
           />
         </Slide>
-        <Slide height='900' className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary">
+        <Slide height='900' className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflow="scroll">
           <Heading height={150} size={4} textColor="white">Don't forget to Bind (or just use arrow functions)</Heading>
           <CodePane
               textSize="20px"
               lang="js"
-              height='600px'
               source={`class Things extends React.Component {
   constructor() {
     this.state = {
@@ -224,10 +217,9 @@ ReactDOM.render(
   }
 };`}
               margin="20px auto"
-              overflow="scroll"
           />
         </Slide>
-        <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflowy="scroll">
+        <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflow="scroll">
           <Heading height={200} size={4} textColor="white">Getting Started in an Existing Codebase?</Heading>
           <Appear order={1}>
           <List margin="0 10%" textColor="white">
@@ -241,7 +233,7 @@ ReactDOM.render(
           </List>
           </Appear>
         </Slide>
-        <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflowy="scroll">
+        <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflow="scroll">
           <Heading height={200} size={4} textColor="white">What is Redux?</Heading>
           <Appear>
             <div>
@@ -250,13 +242,11 @@ ReactDOM.render(
             </div>
           </Appear>
         </Slide>
-        <Slide height={900} className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary">
+        <Slide height={900} className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflow="scroll">
           <Heading height={50} size={6} textColor="white">Create Store</Heading>
           <CodePane
               textSize="20px"
               lang="js"
-              height='740'
-              overflow="scroll"
               source={`import { createStore, Provider } from 'react-redux'
               
 const counterReducer = (state = 0, action) => {
@@ -305,12 +295,11 @@ const resetCount = () => ({
               margin="20px auto"
           />
         </Slide>
-        <Slide height={900} className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary">
+        <Slide height={900} className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflow="scroll">
           <Heading height={200} size={4} textColor="white">Connecting A Component</Heading>
           <CodePane
               textSize="20px"
               lang="js"
-              height='540'
               source={`import { connect } from 'react-redux'
 import { incrementCount, decrementCount, resetCount } from '../actions'
 
