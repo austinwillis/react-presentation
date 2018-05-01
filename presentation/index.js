@@ -11,6 +11,7 @@ import {
   Heading,
   ListItem,
   List,
+  Link,
   Quote,
   Slide,
   Text,
@@ -50,18 +51,19 @@ export default class Presentation extends React.Component {
           </Heading>
           <hr color="black" />
           <Heading size={4} textColor="secondary">
-            <a color="white" href="https://github.com/austinwillis/stl-react-meetup">Propose a Talk!</a>
+            <Link color="white" href="https://github.com/austinwillis/stl-react-meetup">Propose a Talk!</Link>
           </Heading>
         </Slide>
         <Slide height='100vh' className="mySlideStyles" transition={["slide"]} bgColor="primary" overflowy="scroll">
-          <Heading size={6} textColor="secondary">
-          </Heading>
           <Heading size={1} textColor="secondary">
             Getting Started With React Today
           </Heading>
           <hr />
           <Heading size={5} textColor="secondary">
             Austin Willis
+          </Heading>
+          <Heading size={6} textColor="secondary">
+            <Link textColor="white" href="stl-react-getting-started.surge.sh">stl-react-getting-started.surge.sh</Link>
           </Heading>
         </Slide>
         <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflowy="scroll">
@@ -228,11 +230,11 @@ ReactDOM.render(
         <Slide className="mySlideStyles" transition={["slide"]} bgColor="primary" textColor="tertiary" overflowy="scroll">
           <Heading height={200} size={4} textColor="white">Getting Started in an Existing Codebase?</Heading>
           <Appear order={1}>
-          <List margin="0 30%" textColor="white">
+          <List margin="0 10%" textColor="white">
             <ListItem>Redux</ListItem>
             <ListItem>Dev Tools</ListItem>
             <Appear order={1}>
-              <List margin="0 30%" textColor="white">
+              <List margin="0 10%" textColor="white">
                 <ListItem>React Dev Tool</ListItem>
               </List>
             </Appear>
